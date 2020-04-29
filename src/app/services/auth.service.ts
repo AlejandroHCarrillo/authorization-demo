@@ -1,3 +1,4 @@
+import { JwtHelper, tokenNotExpired } from 'angular2-jwt';
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map'
@@ -27,8 +28,27 @@ export class AuthService {
     }
   }
 
-  isLoggedIn() { 
-    return false;
+  isLoggedIn() {
+    return tokenNotExpired();
+
+    // let jwtHelper = new JwtHelper();
+    // let token = localStorage.getItem('token');
+    // if (!token){
+    //   return false;
+    // }
+    // let expirationDate = jwtHelper.getTokenExpirationDate(token);
+    // let isExpired = jwtHelper.isTokenExpired(token);
+        
+    // return !isExpired;
+  }
+
+  get currentUser(){
+    let token = localStorage.getItem('token');
+    if(!token) return null;
+
+    let jwtHelper = new JwtHelper(); 
+    return jwtHelper.decodeToken(token);
+
   }
 }
 
