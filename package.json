@@ -24,6 +24,11 @@
     "angular2-jwt": "^0.2.3",
     "bootstrap": "^3.3.7",
     "core-js": "^2.4.1",
+    "cryptiles": "^4.1.2",
+    "handlebars": "^4.3.0",
+    "hoek": "^4.2.1",
+    "https-proxy-agent": "^2.2.3",
+    "js-yaml": "^3.13.1",
     "rxjs": "^5.1.0",
     "ws": "^1.1.5",
     "zone.js": "^0.8.4"
